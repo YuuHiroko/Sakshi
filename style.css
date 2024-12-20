@@ -61,6 +61,20 @@ section {
 
 /* ... (rest of the CSS is the same) ... */
 
+#music-player {
+  position: relative; 
+}
+
+#music-player img {
+  width: 100px; 
+  height: auto;
+  position: absolute; 
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); 
+  z-index: 10; 
+}
+
 footer {
   text-align: center;
   padding: 20px;
