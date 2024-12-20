@@ -4,7 +4,7 @@ function addPhoto(imageUrl) {
   const img = document.createElement('img');
   img.src = imageUrl;
   img.alt = 'Photo';
-  img.classList.add('fade-in'); // Add the fade-in animation class
+  img.classList.add('fade-in');
   photoGallery.appendChild(img);
 }
 
@@ -18,7 +18,7 @@ function addQuote(quoteText) {
   const quoteContainer = document.getElementById('quote-container');
   const quoteDiv = document.createElement('div');
   quoteDiv.textContent = quoteText;
-  quoteDiv.classList.add('zoom-in'); // Add the zoom-in animation class
+  quoteDiv.classList.add('zoom-in');
   quoteContainer.appendChild(quoteDiv);
 }
 
@@ -31,7 +31,7 @@ function addFriendMessage(messageText) {
   const friendMessages = document.getElementById('friend-messages');
   const messageDiv = document.createElement('div');
   messageDiv.textContent = messageText;
-  messageDiv.classList.add('zoom-in'); // Add the zoom-in animation class
+  messageDiv.classList.add('zoom-in');
   friendMessages.appendChild(messageDiv);
 }
 
@@ -74,10 +74,4 @@ expandHeaders.forEach(header => {
       content.style.maxHeight = '0';
     }
   });
-});
-/ Add parallax effect to the header
-window.addEventListener('scroll', () => {
-  const header = document.querySelector('header');
-  let scrollPosition = window.pageYOffset;
-  header.style.backgroundPositionY = scrollPosition * 0.5 + 'px';
 });
