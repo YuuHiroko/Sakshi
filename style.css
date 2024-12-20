@@ -1,0 +1,113 @@
+body {
+    background-color: ivory;
+    font-family: Arial, sans-serif;
+    /* Shimmer effect for the body */
+    animation: shimmer 1.5s infinite;
+    background-image: linear-gradient(to right, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.2));
+}
+
+header {
+    background-color: deepred; /* Using the deep red color */
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+h1, h2 {
+    font-weight: bold;
+}
+
+p {
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+section {
+    margin: 20px;
+    padding: 10px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+}
+
+#photo-gallery, #quote-container, #friend-messages, #music-player {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+#music-player iframe {
+    width: 100%;
+    height: 200px;
+}
+
+/* Shimmer animation */
+@keyframes shimmer {
+  0% {
+    background-position: -100%;
+  }
+  100% {
+    background-position: 100%;
+  }
+}
+
+/* Fade-in animation */
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Zoom-in animation */
+@keyframes zoom-in {
+  from {
+    transform: scale(0.8);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+/* Bounce animation */
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+/* Sparkle animation */
+@keyframes sparkle {
+  0%, 100% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+/* Apply animations to elements */
+#photo-gallery img {
+  animation: fade-in 1s ease-in-out;
+  margin: 10px;
+}
+
+#quote-container div, #friend-messages div {
+  animation: zoom-in 0.5s ease-in-out;
+  margin: 10px;
+}
+
+#hidden-message {
+  animation: bounce 0.5s infinite;
+  /* Initially hide the message */
+  display: none; 
+}
+
+/* Show the hidden message on hover */
+#hidden-message:hover { 
+  display: block;
+}
