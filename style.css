@@ -1,26 +1,25 @@
 body {
   font-family: 'Open Sans', sans-serif;
-  background-color: #f7f3e8; 
-  color: #333;
+  background-color: #900c3f; 
+  color: #fff; 
   margin: 0;
   overflow-x: hidden;
-  background-image: url("https://i.pinimg.com/originals/f5/09/cf/f509cfb699dc9a7a3d969d88f01dd79e.gif"); 
+  /* Remove background image */
+  /* background-image: url("https://i.pinimg.com/originals/f5/09/cf/f509cfb699dc9a7a3d969d88f01dd79e.gif"); */
   background-repeat: repeat;
   background-size: cover;
   position: relative;
-  z-index: -1;
   display: flex;
   min-height: 100vh;
   flex-direction: column; 
 }
 
 header {
-  background-color: #ad2831; 
+  background-color: #900c3f; 
   color: #fff;
   text-align: center;
   padding: 20px 0;
   position: relative;
-  z-index: 10;
   font-family: 'Dancing Script', cursive; 
   background-size: cover;
   background-position: center;
@@ -34,13 +33,13 @@ h1 {
 
 h2 {
   font-family: 'Playfair Display', serif;
-  color: #ad2831; 
+  color: #fff; 
   cursor: pointer;
 }
 
 main {
   padding: 20px;
-  background-color: #f7f3e8; 
+  background-color: #900c3f; 
 }
 
 section {
@@ -62,16 +61,13 @@ section {
   flex: 1; 
 }
 
-/* ... (rest of the CSS is the same) ... */
-
 a {
   text-decoration: none; 
 }
 
 footer a {
-  background: linear-gradient(to right, #ff69b4, #ff1493, #c71585);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color: #ff69b4; 
+  text-decoration: none;
 }
 
 footer {
@@ -80,4 +76,15 @@ footer {
   background-color: #333; 
   color: white;
   margin-top: auto; 
+}
+
+.section-content {
+  /* Initially hide the content */
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+
+.section-content.expanded {
+  max-height: 2000px; /* Adjust as needed */
 }
