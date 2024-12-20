@@ -26,53 +26,10 @@ header {
   background-position: center;
 }
 
-header img {
-  max-width: 100%;
-  height: auto;
-  display: block;
-  margin: 20px auto;
-}
+/* ... rest of the CSS ... */
 
-h1 {
-  font-family: 'Playfair Display', serif;
-  font-size: 3em;
-  margin: 0;
-}
-
-h2 {
-  font-family: 'Playfair Display', serif;
-  color: #ad2831;
-  cursor: pointer;
-}
-
-main {
-  padding: 20px;
-  background-color: #f7f3e8;
-}
-
-section {
-  background-color: #fff;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  text-align: center;
-  margin-bottom: 20px;
-}
-
-/* ... (rest of the CSS is the same) ... */
-
-#music-player {
-  position: relative; 
-}
-
-#music-player img {
-  width: 100px; 
-  height: auto;
-  position: absolute; 
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%); 
-  z-index: 10; 
+#message .section-content p { 
+  display: none; 
 }
 
 footer {
