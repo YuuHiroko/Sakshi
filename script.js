@@ -3,8 +3,8 @@ const expandHeaders = document.querySelectorAll('.expand-header');
 
 expandHeaders.forEach(header => {
   header.addEventListener('click', (event) => {
-    // Prevent the link from navigating to the expanded content page
-    event.preventDefault(); 
+    // Prevent the link from navigating to another page
+    event.preventDefault();
 
     const content = header.nextElementSibling;
     content.classList.toggle('expanded');
