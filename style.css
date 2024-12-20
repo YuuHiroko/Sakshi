@@ -4,139 +4,14 @@ body {
   color: #333;
   margin: 0;
   overflow-x: hidden;
-}
-
-header {
-  background-color: #ad2831;
-  color: #fff;
-  text-align: center;
-  padding: 20px 0;
-  position: relative;
-  z-index: 10;
-}
-
-h1 {
-  font-family: 'Playfair Display', serif;
-  font-size: 3em;
-  margin: 0;
-}
-
-h2 {
-  font-family: 'Playfair Display', serif;
-  color: #ad2831;
-  cursor: pointer;
-}
-
-main {
-  padding: 20px;
-  background-color: #f7f3e8;
-}
-
-section {
-  background-color: #fff;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  text-align: center;
-  margin-bottom: 20px;
-}
-
-#message p {
-  line-height: 1.6;
-}
-
-#photo-gallery {
-  display: flex;
-  overflow-x: auto;
-}
-
-#photo-gallery img {
-  width: 200px;
-  height: auto;
-  margin-right: 10px;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  opacity: 0;
-  transition: opacity 0.5s ease;
-}
-
-#photo-gallery img.show {
-  opacity: 1;
-}
-
-#quote-container, #friend-messages {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-#quote-container div, #friend-messages div {
-  margin-bottom: 15px;
-  padding: 15px;
-  background-color: #f9f5ec;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.5s ease, transform 0.5s ease;
-}
-
-#quote-container div.show, #friend-messages div.show {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-#music-player iframe {
-  width: 100%;
-  height: 200px;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-body {
-  font-family: 'Open Sans', sans-serif;
-  background-color: #f7f3e8;
-  color: #333;
-  margin: 0;
-  overflow-x: hidden;
-  background-image: url("https://i.pinimg.com/originals/f5/09/cf/f509cfb699dc9a7a3d969d88f01dd79e.gif"); /* Sparkling background */
-  background-repeat: repeat;
-  background-size: cover;
-}
-
-header {
-  background-color: #ad2831;
-  color: #fff;
-  text-align: center;
-  padding: 20px 0;
-  position: relative;
-  z-index: 10;
-  font-family: 'Dancing Script', cursive;
-  background-image: url("love-background.jpg");
-  background-size: cover;
-  background-position: center;
-}
-
-header img {
-  max-width: 100%;
-  height: auto;
-  display: block;
-  margin: 20px auto;
-}
-
-h1 {
-  font-family: 'Playfair Display', serif;
-body {
-  font-family: 'Open Sans', sans-serif;
-  background-color: #f7f3e8;
-  color: #333;
-  margin: 0;
-  overflow-x: hidden;
   background-image: url("https://i.pinimg.com/originals/f5/09/cf/f509cfb699dc9a7a3d969d88f01dd79e.gif");
   background-repeat: repeat;
   background-size: cover;
   position: relative;
   z-index: -1;
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column; 
 }
 
 header {
@@ -191,26 +66,5 @@ footer {
   padding: 20px;
   background-color: #333;
   color: white;
-}
-idden;
-  transition: max-height 0.3s ease;
-}
-
-.section-content.expanded {
-  display: block;
-}
-
-h2 a {
-  text-decoration: none;
-  color: inherit;
-}
-
-@media (max-width: 768px) {
-  h1 {
-    font-size: 2em;
-  }
-
-  #photo-gallery img {
-    width: 150px;
-  }
+  margin-top: auto; 
 }
