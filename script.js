@@ -38,3 +38,23 @@ function addFriendMessage(messageText) {
 // Add messages from friends (replace with actual messages)
 addFriendMessage('Happy birthday, Sakshi! Wishing you all the best on your special day!');
 addFriendMessage('Dear Sakshi, I hope you have a wonderful day filled with joy and laughter.');
+
+// Add the "show" class to elements with a delay for fade-in effect
+function showElementsWithDelay() {
+  const elements = document.querySelectorAll('.fade-in, .zoom-in');
+  elements.forEach((element, index) => {
+    setTimeout(() => {
+      element.classList.add('show');
+    }, index * 200); // 200ms delay between each element
+  });
+}
+
+// Call the function to show elements with a delay
+showElementsWithDelay();
+
+// Add parallax effect to the header
+window.addEventListener('scroll', () => {
+  const header = document.querySelector('header');
+  let scrollPosition = window.pageYOffset;
+  header.style.backgroundPositionY = scrollPosition * 0.5 + 'px';
+});

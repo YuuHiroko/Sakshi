@@ -1,113 +1,134 @@
 body {
-    background-color: ivory;
-    font-family: Arial, sans-serif;
-    /* Shimmer effect for the body */
-    animation: shimmer 1.5s infinite;
-    background-image: linear-gradient(to right, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.2));
+  font-family: 'Open Sans', sans-serif;
+  background-color: #f7f3e8; /* Warm beige background */
+  color: #333; /* Dark gray text color */
+  margin: 0;
+  overflow-x: hidden; /* Hide horizontal scrollbar for parallax effect */
 }
 
 header {
-    background-color: deepred; /* Using the deep red color */
-    color: white;
-    text-align: center;
-    padding: 20px;
+  background-color: #ad2831; /* Deep red header */
+  color: #fff;
+  text-align: center;
+  padding: 20px 0;
+  position: relative; /* For parallax effect */
+  z-index: 10; /* Ensure header stays on top */
 }
 
-h1, h2 {
-    font-weight: bold;
+h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 3em;
+  margin: 0;
 }
 
-p {
-    font-size: 16px;
-    line-height: 1.5;
+h2 {
+  font-family: 'Playfair Display', serif;
+  color: #ad2831;
+}
+
+main {
+  padding: 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive grid */
+  gap: 20px;
 }
 
 section {
-    margin: 20px;
-    padding: 10px;
-    border: 1px solid rgba(0, 0, 0, 0.1);
-    border-radius: 5px;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  text-align: center;
 }
 
-#photo-gallery, #quote-container, #friend-messages, #music-player {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
+#message p {
+  line-height: 1.6;
 }
 
-#music-player iframe {
-    width: 100%;
-    height: 200px;
+#photo-gallery {
+  display: flex;
+  overflow-x: auto; /* Enable horizontal scrolling for photos */
 }
 
-/* Shimmer animation */
-@keyframes shimmer {
-  0% {
-    background-position: -100%;
-  }
-  100% {
-    background-position: 100%;
-  }
-}
-
-/* Fade-in animation */
-@keyframes fade-in {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-/* Zoom-in animation */
-@keyframes zoom-in {
-  from {
-    transform: scale(0.8);
-  }
-  to {
-    transform: scale(1);
-  }
-}
-
-/* Bounce animation */
-@keyframes bounce {
-  0%, 100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-10px);
-  }
-}
-
-/* Sparkle animation */
-@keyframes sparkle {
-  0%, 100% {
-    opacity: 0;
-  }
-  50% {
-    opacity: 1;
-  }
-}
-
-/* Apply animations to elements */
 #photo-gallery img {
-  animation: fade-in 1s ease-in-out;
-  margin: 10px;
+  width: 200px;
+  height: auto;
+  margin-right: 10px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  opacity: 0; /* Initially hide images for fade-in effect */
+  transition: opacity 0.5s ease; /* Smooth transition for fade-in */
+}
+
+#photo-gallery img.show {
+  opacity: 1; /* Show images with the "show" class */
+}
+
+#quote-container, #friend-messages {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 #quote-container div, #friend-messages div {
-  animation: zoom-in 0.5s ease-in-out;
-  margin: 10px;
+  margin-bottom: 15px;
+  padding: 15px;
+  background-color: #f9f5ec; /* Light beige background for quotes */
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  opacity: 0; /* Initially hide quotes for fade-in effect */
+  transform: translateY(20px); /* Initially translate quotes down */
+  transition: opacity 0.5s ease, transform 0.5s ease; /* Smooth transitions */
+}
+
+#quote-container div.show, #friend-messages div.show {
+  opacity: 1; /* Show quotes with the "show" class */
+  transform: translateY(0); /* Reset translation for "show" class */
+}
+
+#music-player iframe {
+  width: 100%;
+  height: 200px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 #hidden-message {
-  animation: bounce 0.5s infinite;
-  /* Initially hide the message */
-  display: none; 
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #ad2831;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  opacity: 0; /* Initially hide the message */
+  transition: opacity 0.3s ease; /* Smooth transition for fade-in */
+  cursor: pointer;
+  z-index: 10; /* Ensure message stays on top */
 }
 
-/* Show the hidden message on hover */
-#hidden-message:hover { 
-  display: block;
+#hidden-message:hover {
+  opacity: 1; /* Show the message on hover */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Add a subtle glow effect */
+}
+
+/* Parallax effect for the header */
+.parallax {
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+/* Media query for smaller screens */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2em;
+  }
+
+  #photo-gallery img {
+    width: 150px;
+  }
 }
