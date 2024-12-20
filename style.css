@@ -93,32 +93,65 @@ section {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-#hidden-message {
-  position: fixed;
-  bottom: 20px;
-  left: 50%;
-  transform: translateX(-50%);
+body {
+  font-family: 'Open Sans', sans-serif;
+  background-color: #f7f3e8;
+  color: #333;
+  margin: 0;
+  overflow-x: hidden;
+  background-image: url("https://i.pinimg.com/originals/f5/09/cf/f509cfb699dc9a7a3d969d88f01dd79e.gif"); /* Sparkling background */
+  background-repeat: repeat;
+  background-size: cover;
+}
+
+header {
   background-color: #ad2831;
   color: #fff;
-  padding: 10px 20px;
-  border-radius: 20px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-  opacity: 0;
-  transition: opacity 0.3s ease;
-  cursor: pointer;
+  text-align: center;
+  padding: 20px 0;
+  position: relative;
   z-index: 10;
-}
-
-#hidden-message:hover {
-  opacity: 1;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-}
-
-.parallax {
-  background-attachment: fixed;
-  background-position: center;
-  background-repeat: no-repeat;
+  font-family: 'Dancing Script', cursive;
+  background-image: url("love-background.jpg");
   background-size: cover;
+  background-position: center;
+}
+
+header img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 20px auto;
+}
+
+h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 3em;
+  margin: 0;
+}
+
+h2 {
+  font-family: 'Playfair Display', serif;
+  color: #ad2831;
+  cursor: pointer;
+}
+
+main {
+  padding: 20px;
+  background-color: #f7f3e8;
+}
+
+section {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* ... (rest of the CSS is the same) ... */
+over;
 }
 
 /* Styles for expandable sections */
