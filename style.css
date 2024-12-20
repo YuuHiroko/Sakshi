@@ -28,8 +28,14 @@ header {
 
 /* ... rest of the CSS ... */
 
-#message .section-content p { 
-  display: none; 
+a {
+  text-decoration: none; 
+}
+
+footer a {
+  background: linear-gradient(to right, #ff69b4, #ff1493, #c71585);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 footer {
