@@ -2,17 +2,17 @@
 body {
   font-family: 'Open Sans', sans-serif;
   margin: 0;
-  background: linear-gradient(to bottom, #f7c1d5, #f78fa7);
-  color: #333;
+  background-color: #9e2a53; /* Themed background color */
+  color: #fff; /* Light text for contrast */
   scroll-behavior: smooth;
 }
 
 /* Redesigned Header */
 header {
   text-align: center;
-  background: linear-gradient(to right, #ff69b4, #ff85c1);
+  background-color: #7e2246; /* Slightly darker shade for header */
   color: white;
-  padding: 30px;
+  padding: 20px; /* Reduced padding for smaller header */
 }
 
 .header-container {
@@ -22,14 +22,13 @@ header {
 
 header h1 {
   font-family: 'Great Vibes', cursive; /* Elegant font for the header */
-  font-size: 4em; /* Increased size for a striking look */
+  font-size: 3em; /* Reduced font size for a compact look */
   margin: 0;
 }
 
 header .subtitle {
   font-family: 'Playfair Display', serif; /* Sophisticated font for subtitle */
-  font-size: 1.2em;
-  margin-top: 10px;
+  font-size: 1em; /* Smaller subtitle size */
 }
 
 /* Main Content */
@@ -41,13 +40,14 @@ main {
 }
 
 section {
-  background: #fff;
+  background-color: #7e2246; /* Themed section background */
+  color: white; /* Light text for contrast */
   border-radius: 10px;
   padding: 15px;
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
 }
 
-/* Photo Gallery */
+/* Photo Gallery Styling */
 #photo-gallery {
   display: flex;
   gap: 10px;
@@ -65,27 +65,15 @@ section {
   transform: scale(1.05);
 }
 
-/* Back-to-Top Button */
+/* Back-to-Top Button Styling */
 #back-to-top {
   position: fixed;
   bottom: 20px;
   right: 20px;
-  background-color: #ff69b4;
-  color: white;
-  border: none;
-  border-radius: 50%;
-  width: 50px;
-  height: 50px;
-  font-size: 1.5em;
-  cursor: pointer;
-}
+  background-color: #ff69b4; /* Bright pink button to match theme */
+color:white;border:none;border-radius50%;width50;height50;font-size1.5em }
 
-#back-to-top:hover {
-    background-color:#ff3e8a
-}
+/* Footer Styling */
+footer{text-align:center;padding15;background:#7e2246;color:white;}
 
-/* Redesigned Footer */
-footer {
-    text-align:center;padding20;background:#333;color:white;}
-
-.footer-link{color:#ff85
+.footer-link{color:#ff85c}
