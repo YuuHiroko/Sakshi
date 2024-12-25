@@ -47,6 +47,12 @@ section {
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
 }
 
+/* Section Titles */
+section h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.8em;
+}
+
 /* Photo Gallery Styling */
 #photo-gallery {
   display: flex;
@@ -57,23 +63,7 @@ section {
 
 #photo-gallery img {
   max-width: calc(100% / 3 - 20px); /* Responsive image sizing */
-  border-radius: 5px;
-  transition: transform .3s ease-in-out, box-shadow .3s ease-in-out;
-}
-
-#photo-gallery img:hover {
-  transform: scale(1.05);
-}
+border-radius5px}
 
 /* Back-to-Top Button Styling */
-#back-to-top {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background-color: #ff69b4; /* Bright pink button to match theme */
-color:white;border:none;border-radius50%;width50;height50;font-size1.5em }
-
-/* Footer Styling */
-footer{text-align:center;padding15;background:#7e2246;color:white;}
-
-.footer-link{color:#ff85c}
+#back-to-top{positionfixed}
