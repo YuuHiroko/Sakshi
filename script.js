@@ -67,15 +67,15 @@ sections.forEach((section) => {
 gsap.utils.toArray('section').forEach((section) => {
   gsap.fromTo(
     section,
-    { opacity: 0, y: 50 },
+    { opacity: 0, y: 30 }, // Smaller initial offset for smoother animations
     {
       opacity: 1,
       y: 0,
-      duration: 0.5, // Faster animations
-      ease: "power2.out", // Smooth easing
+      duration: 0.4, // Faster animations for a smoother experience
+      ease: "power1.out", // Gentle easing for smooth transitions
       scrollTrigger: {
         trigger: section,
-        start: 'top 80%',
+        start: 'top 85%',
       },
     }
   );
