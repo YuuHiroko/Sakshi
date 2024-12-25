@@ -71,7 +71,8 @@ gsap.utils.toArray('section').forEach((section) => {
     {
       opacity: 1,
       y: 0,
-      duration: 0.8,
+      duration: 0.5, // Faster animations
+      ease: "power2.out", // Smooth easing
       scrollTrigger: {
         trigger: section,
         start: 'top 80%',
