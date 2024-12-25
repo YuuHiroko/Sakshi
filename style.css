@@ -1,3 +1,12 @@
+now send me full code of css again with full updates
+
+Here is the **full CSS code** with all the updates, including the redesigned header and footer, and ensuring everything is styled beautifully and consistently.
+
+---
+
+### **Full CSS Code**
+
+```css
 /* General Styling */
 body {
   font-family: 'Open Sans', sans-serif;
@@ -7,22 +16,32 @@ body {
   scroll-behavior: smooth;
 }
 
+/* Redesigned Header */
 header {
-  text-align: center; /* Center the header */
-  background: #ff69b4;
-  color: #fff;
-  padding: 15px 0;
-  position: sticky;
-  top: 0;
-  z-index: 1000;
+  text-align: center;
+  background: linear-gradient(to right, #ff69b4, #ff85c1);
+  color: white;
+  padding: 30px;
+}
+
+.header-container {
+  max-width: 800px;
+  margin: auto;
 }
 
 header h1 {
   font-family: 'Dancing Script', cursive;
-  font-size: 2.2em;
+  font-size: 3em;
   margin: 0;
 }
 
+header .subtitle {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.2em;
+  margin-top: 10px;
+}
+
+/* Main Content */
 main {
   display: flex;
   flex-direction: column;
@@ -34,9 +53,10 @@ section {
   background: #fff;
   border-radius: 10px;
   padding: 15px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
 }
 
+/* Photo Gallery */
 #photo-gallery {
   display: flex;
   gap: 10px;
@@ -47,35 +67,36 @@ section {
 #photo-gallery img {
   max-width: 100%;
   border-radius: 5px;
-  transition: transform .3s ease;
+  transition: transform .3s ease-in-out, box-shadow .3s ease-in-out;
 }
 
 #photo-gallery img:hover {
   transform: scale(1.05);
 }
 
+/* Back-to-Top Button */
 #back-to-top {
   position: fixed;
   bottom: 20px;
   right: 20px;
-  background: #ff69b4;
+  background-color: #ff69b4;
   color: white;
   border: none;
   border-radius: 50%;
   width: 50px;
   height: 50px;
-  font-size:1.5em ;
- cursor:pointer
- display:none
+  font-size: 1.5em;
+  cursor: pointer;
+  display: none; /* Initially hidden */
 }
 
-/* Footer Styling */
+#back-to-top:hover {
+    background-color:#ff3e8a
+}
+
+/* Redesigned Footer */
 footer {
-text-align:center
-padding10
-background:#333;color:#fff;}
+    text-align:center;padding10;background:#333;color:white;}
 
-footer a{color:#ff69b4;text-decoration:none}
+.footer-link{color:#ff85
 
-/* Responsive Design */
-@media(max-width768px){body{font-size:.9em;}header h1{font-size1.8em;}
