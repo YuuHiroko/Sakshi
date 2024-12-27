@@ -5,41 +5,37 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="A heartfelt webpage for Sakshi with messages, photos, and memories.">
   <title>Sakshi 💖</title>
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@400;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
-  <!-- Stylesheet -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Open+Sans:wght@400;600&family=Dancing+Script&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
-  <!-- Lightbox CSS -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css" rel="stylesheet">
 </head>
 <body>
-  <!-- Header Section -->
+  <div class="theme-toggle">
+    <label>
+      <input type="checkbox" id="theme-toggle-checkbox" />
+      Dark Mode
+    </label>
+  </div>
   <header>
-    <div class="header-container">
-      <h1>Sakshi 💖</h1>
-      <p class="subtitle">A celebration of love, memories, and happiness</p>
-    </div>
+    <h1>Sakshi 💖</h1>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#welcome">Welcome</a>
+      <a href="#message">Message</a>
+      <a href="#photos">Photos</a>
+      <a href="#quotes">Quotes</a>
+      <a href="#music">Music</a>
+    </nav>
   </header>
-
-  <!-- Main Content Section -->
   <main id="main-content">
-    <!-- Dynamic sections will be loaded here by JavaScript -->
+    <!-- Dynamic sections will be loaded here -->
   </main>
-
-  <!-- Back-to-Top Button -->
-  <button id="back-to-top" aria-label="Back to Top">⬆️</button>
-
-  <!-- Footer Section -->
+  <button id="back-to-top">⬆️</button>
   <footer>
-    <p>Made with ❤️ by <a href="https://wa.me/+919175349176" target="_blank" class="footer-link">Munchkin✨</a></p>
+    <p>Made with ❤️ by <a href="https://wa.me/+919175349176" target="_blank">Munchkin✨</a></p>
   </footer>
-
-  <!-- External Scripts -->
-  <!-- Lightbox JS -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
-  <!-- GSAP Animation Library -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-  <!-- Custom JavaScript -->
   <script src="script.js"></script>
 </body>
 </html>
