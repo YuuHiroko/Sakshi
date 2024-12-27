@@ -46,6 +46,7 @@ const mainContent = document.getElementById('main-content');
 sections.forEach((section) => {
   const sectionElement = document.createElement('section');
   sectionElement.id = section.id;
+  sectionElement.classList.add('fade-in'); // Add animation class
   sectionElement.innerHTML = `<h2>${section.title}</h2>${section.content}`;
   mainContent.appendChild(sectionElement);
 });
@@ -68,4 +69,5 @@ themeToggleCheckbox.checked = isDarkMode;
 themeToggleCheckbox.addEventListener('change', () => {
   const darkModeEnabled = themeToggleCheckbox.checked;
   document.body.classList.toggle('dark-mode', darkModeEnabled);
-  localStorage.setItem('darkMode', darkMode
+  localStorage.setItem('darkMode', darkModeEnabled);
+});
