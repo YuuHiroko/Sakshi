@@ -1,37 +1,66 @@
 /* General Styling */
+:root {
+  --bg-color: #f7c1d5;
+  --text-color: #333;
+  --header-bg: #ff69b4;
+  --highlight-color: #fff;
+}
+
 body {
   font-family: 'Open Sans', sans-serif;
   margin: 0;
-  background-color: #9e2a53; /* Themed background color */
-  color: #fff; /* Light text for contrast */
+  background: var(--bg-color);
+  color: var(--text-color);
   scroll-behavior: smooth;
+  transition: background 0.3s, color 0.3s;
 }
 
-/* Redesigned Header */
+body.dark-mode {
+  --bg-color: #1c1c1c;
+  --text-color: #e0e0e0;
+  --header-bg: #333;
+  --highlight-color: #ff69b4;
+}
+
 header {
   text-align: center;
-  background-color: #7e2246; /* Slightly darker shade for header */
-  color: white;
-  padding: 20px; /* Reduced padding for smaller header */
-}
-
-.header-container {
-  max-width: 800px;
-  margin: auto;
+  background: var(--header-bg);
+  color: var(--highlight-color);
+  padding: 15px 0;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  transition: background 0.3s, color 0.3s;
 }
 
 header h1 {
-  font-family: 'Great Vibes', cursive; /* Elegant font for the header */
-  font-size: 3em; /* Reduced font size for a compact look */
+  font-family: 'Dancing Script', cursive;
+  font-size: 2.2em;
   margin: 0;
 }
 
-header .subtitle {
-  font-family: 'Playfair Display', serif; /* Sophisticated font for subtitle */
-  font-size: 1em; /* Smaller subtitle size */
+header nav {
+  margin-top: 10px;
 }
 
-/* Main Content */
+header nav a {
+  color: var(--highlight-color);
+  text-decoration: none;
+  margin: 0 10px;
+  font-weight: bold;
+  transition: color 0.3s ease, border-bottom 0.3s ease;
+}
+
+header nav a:hover {
+  color: var(--text-color);
+  border-bottom: 2px solid var(--highlight-color);
+}
+
+header nav a.active {
+  color: var(--text-color);
+  border-bottom: 2px solid var(--text-color);
+}
+
 main {
   display: flex;
   flex-direction: column;
@@ -40,20 +69,20 @@ main {
 }
 
 section {
-  background-color: #7e2246; /* Themed section background */
-  color: white; /* Light text for contrast */
+  background: #fff;
   border-radius: 10px;
   padding: 15px;
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  opacity: 0;
+  transform: translateY(20px);
+  transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
-/* Section Titles */
-section h2 {
-  font-family: 'Playfair Display', serif;
-  font-size: 1.8em;
+body.dark-mode section {
+  background: #2a2a2a;
+  color: #e0e0e0;
 }
 
-/* Photo Gallery Styling */
 #photo-gallery {
   display: flex;
   gap: 10px;
@@ -62,8 +91,85 @@ section h2 {
 }
 
 #photo-gallery img {
-  max-width: calc(100% / 3 - 20px); /* Responsive image sizing */
-border-radius5px}
+  max-width: 100%;
+  border-radius: 5px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
 
-/* Back-to-Top Button Styling */
-#back-to-top{positionfixed}
+#photo-gallery img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+#back-to-top {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: var(--header-bg);
+  color: var(--highlight-color);
+  border: none;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  font-size: 1.5em;
+  cursor: pointer;
+  display: none;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  transition: background 0.3s ease;
+}
+
+#back-to-top:hover {
+  background: #ff3e8a;
+}
+
+/* Footer Styling */
+footer {
+  text-align: center;
+  padding: 10px;
+  background: var(--header-bg);
+  color: var(--highlight-color);
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+footer a {
+  color: var(--highlight-color);
+  text-decoration: none;
+}
+
+/* Theme Toggle */
+.theme-toggle {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: var(--header-bg);
+  padding: 5px 10px;
+  border-radius: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.theme-toggle label {
+  color: var(--highlight-color);
+  font-weight: bold;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  body {
+    font-size: 0.9em;
+  }
+
+  header h1 {
+    font-size: 1.8em;
+  }
+
+  #photo-gallery img {
+    max-width: 45%;
+  }
+}
+
+@media (max-width: 480px) {
+  #photo-gallery img {
+    max-width: 100%;
+  }
+}
