@@ -3,9 +3,7 @@ const sections = [
   {
     id: 'about',
     title: 'About Sakshi 💖',
-    content: `
-      <p>Sakshi is my elder sissy who is the bestest sissy. She brings happiness wherever she goes!</p>
-    `,
+    content: `<p>Sakshi is my elder sissy who is the bestest sissy. She brings happiness wherever she goes!</p>`,
   },
   {
     id: 'welcome',
@@ -29,15 +27,11 @@ const sections = [
     `,
   },
   {
-    id: 'timeline',
-    title: 'Sakshi’s Timeline',
-    content: `<p>Interactive milestones of Sakshi’s life can go here.</p>`,
-  },
-  {
     id: 'testimonials',
     title: 'Testimonials',
     content: `
       <blockquote>"Sakshi is amazing!" - Family</blockquote>
+      <blockquote>"You always bring joy to our lives, Sakshi!" - Friends</blockquote>
     `,
   },
   {
@@ -47,7 +41,7 @@ const sections = [
   },
 ];
 
-// Dynamic section loader
+// Dynamically load sections
 const mainContent = document.getElementById('main-content');
 sections.forEach((section) => {
   const sectionElement = document.createElement('section');
@@ -56,12 +50,7 @@ sections.forEach((section) => {
   mainContent.appendChild(sectionElement);
 });
 
-// Dark Mode Toggle
-document.getElementById('theme-toggle-checkbox').addEventListener('change', () => {
-  document.body.classList.toggle('dark-mode');
-});
-
-// Back to top button
+// Back-to-top button
 const backToTopButton = document.getElementById('back-to-top');
 window.addEventListener('scroll', () => {
   backToTopButton.style.display = window.scrollY > 200 ? 'block' : 'none';
@@ -69,3 +58,14 @@ window.addEventListener('scroll', () => {
 backToTopButton.addEventListener('click', () => {
   window.scrollTo({ top: 0, behavior: 'smooth' });
 });
+
+// Dark Mode Toggle
+const themeToggleCheckbox = document.getElementById('theme-toggle-checkbox');
+const isDarkMode = localStorage.getItem('darkMode') === 'true';
+document.body.classList.toggle('dark-mode', isDarkMode);
+themeToggleCheckbox.checked = isDarkMode;
+
+themeToggleCheckbox.addEventListener('change', () => {
+  const darkModeEnabled = themeToggleCheckbox.checked;
+  document.body.classList.toggle('dark-mode', darkModeEnabled);
+  localStorage.setItem('darkMode', darkMode
