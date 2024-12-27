@@ -34,6 +34,7 @@ header {
   position: sticky;
   top: 0;
   z-index: 1000;
+  backdrop-filter: blur(10px); /* New blur effect */
 }
 
 .header-title {
@@ -98,6 +99,24 @@ footer {
   color: var(--text-color);
 }
 
+/* Photo Gallery */
+#photo-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 15px;
+}
+
+#photo-gallery a img {
+  width: 100%;
+  border-radius: 10px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#photo-gallery a:hover img {
+  transform: scale(1.05);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
 /* Theme Toggle */
 .theme-toggle {
   position: fixed;
@@ -132,4 +151,20 @@ footer {
 
 #back-to-top:hover {
   background: #ff3e8a;
+}
+
+/* Animations */
+.fade-in {
+  animation: fadeIn 0.8s ease-in forwards;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
