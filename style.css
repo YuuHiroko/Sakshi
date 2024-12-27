@@ -27,45 +27,30 @@ body.dark-mode {
 }
 
 header {
-  text-align: center;
   background: var(--header-bg);
   color: var(--text-color);
   padding: 20px 0;
   position: sticky;
   top: 0;
   z-index: 1000;
-  backdrop-filter: blur(10px); /* New blur effect */
-}
-
-.header-title {
-  font-family: 'Dancing Script', cursive;
-  font-size: clamp(2.5rem, 5vw, 3.5rem);
-  margin: 0;
-  color: var(--highlight-color);
-}
-
-header nav {
-  margin-top: 10px;
+  backdrop-filter: blur(10px); /* Adds glassmorphism effect */
 }
 
 header nav a {
   color: var(--text-color);
   text-decoration: none;
-  margin: 0 10px;
+  margin: 0 15px;
   font-weight: bold;
   transition: color 0.3s ease, border-bottom 0.3s ease;
 }
 
-header nav a:hover {
+header nav a:hover, header nav a.active {
   color: var(--highlight-color);
   border-bottom: 2px solid var(--highlight-color);
 }
 
 main {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  padding: 15px;
+  padding: 20px;
 }
 
 section {
@@ -73,66 +58,83 @@ section {
   color: var(--box-text-color);
   border-radius: 10px;
   padding: 20px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
   opacity: 0;
   transform: translateY(20px);
-  transition: transform 0.3s ease, opacity 0.3s ease;
+  transition: transform 0.5s ease, opacity 0.5s ease;
 }
 
-body.dark-mode section {
-  background: var(--box-bg);
-}
-
-blockquote {
-  font-size: 1.1em;
-  margin: 15px 0;
-  padding: 10px 15px;
-  border-left: 4px solid var(--highlight-color);
-  background: rgba(255, 255, 255, 0.1);
-  font-style: italic;
-}
-
-footer {
-  text-align: center;
-  padding: 10px;
-  background: var(--header-bg);
-  color: var(--text-color);
+section.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 /* Photo Gallery */
 #photo-gallery {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
   gap: 15px;
 }
 
 #photo-gallery a img {
-  width: 100%;
   border-radius: 10px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 #photo-gallery a:hover img {
   transform: scale(1.05);
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
 
-/* Theme Toggle */
-.theme-toggle {
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  background: var(--header-bg);
-  padding: 5px 10px;
-  border-radius: 20px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+/* Testimonials Carousel */
+.carousel {
+  display: flex;
+  overflow: hidden;
+  position: relative;
 }
 
-.theme-toggle label {
+.carousel .testimonial {
+  min-width: 100%;
+  transition: transform 0.5s ease-in-out;
+}
+
+.carousel .testimonial blockquote {
+  font-size: 1.2em;
+  text-align: center;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.1);
+  border-left: 4px solid var(--highlight-color);
+  font-style: italic;
+}
+
+/* Form Styling */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+form input, form textarea, form button {
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+form button {
+  background: var(--highlight-color);
   color: var(--text-color);
-  font-weight: bold;
+  border: none;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
 }
 
+form button:hover {
+  background: #ff69b4;
+}
+
+/* Back to Top Button */
 #back-to-top {
   position: fixed;
   bottom: 20px;
@@ -143,28 +145,13 @@ footer {
   border-radius: 50%;
   width: 50px;
   height: 50px;
-  font-size: 1.5em;
-  cursor: pointer;
   display: none;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5rem;
+  cursor: pointer;
 }
 
-#back-to-top:hover {
-  background: #ff3e8a;
-}
-
-/* Animations */
-.fade-in {
-  animation: fadeIn 0.8s ease-in forwards;
-}
-
-@keyframes fadeIn {
-  0% {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
+#back-to-top.visible {
+  display: flex;
 }
