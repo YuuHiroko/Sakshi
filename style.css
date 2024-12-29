@@ -1,164 +1,135 @@
 /* General Styling */
-:root {
-  --bg-color: #950045;
-  --text-color: #fff;
-  --box-bg: #fff;
-  --box-text-color: #333;
-  --header-bg: #62002a;
-  --highlight-color: #ffb3d9;
-}
-
 body {
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Open Sans', sans-serif;
   margin: 0;
-  background: var(--bg-color);
-  color: var(--text-color);
+  background: linear-gradient(to bottom, #f7c1d5, #f78fa7);
+  color: #333;
   scroll-behavior: smooth;
-  transition: background 0.3s, color 0.3s;
-}
-
-body.dark-mode {
-  --bg-color: #1c1c1c;
-  --text-color: #e0e0e0;
-  --box-bg: #2a2a2a;
-  --box-text-color: #e0e0e0;
-  --header-bg: #333;
-  --highlight-color: #950045;
 }
 
 header {
-  background: var(--header-bg);
-  color: var(--text-color);
-  padding: 20px 0;
   text-align: center;
+  background: #ff69b4;
+  color: #fff;
+  padding: 15px 0;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
 }
 
 header h1 {
   font-family: 'Dancing Script', cursive;
-  font-weight: 700;
-  font-size: 2.5em;
+  font-size: 2.2em;
   margin: 0;
 }
 
+header nav {
+  margin-top: 10px;
+}
+
+header nav a {
+  color: #fff;
+  text-decoration: none;
+  margin: 0 10px;
+  font-weight: bold;
+  transition: color 0.3s ease, border-bottom 0.3s ease;
+}
+
+header nav a:hover {
+  color: #333;
+  border-bottom: 2px solid #fff;
+}
+
+header nav a.active {
+  color: #333;
+  border-bottom: 2px solid #333;
+}
+
 main {
-  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 15px;
 }
 
 section {
-  background: var(--box-bg);
-  color: var(--box-text-color);
+  background: #fff;
   border-radius: 10px;
-  padding: 20px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  margin-bottom: 20px;
+  padding: 15px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   opacity: 0;
   transform: translateY(20px);
-  transition: transform 0.5s ease, opacity 0.5s ease;
 }
 
-section.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* Photo Gallery */
 #photo-gallery {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  gap: 15px;
-}
-
-#photo-gallery a img {
-  border-radius: 10px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-#photo-gallery a:hover img {
-  transform: scale(1.05);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-}
-
-/* Testimonials Carousel */
-.carousel {
   display: flex;
-  overflow: hidden;
-  position: relative;
+  gap: 10px;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
-.carousel .testimonial {
-  min-width: 100%;
-  transition: transform 0.5s ease-in-out;
-}
-
-.carousel .testimonial blockquote {
-  font-size: 1.2em;
-  text-align: center;
-  padding: 20px;
-  background: rgba(255, 255, 255, 0.1);
-  border-left: 4px solid var(--highlight-color);
-  font-style: italic;
-}
-
-/* Form Styling */
-form {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-}
-
-form input, form textarea, form button {
-  padding: 10px;
+#photo-gallery img {
+  max-width: 100%;
   border-radius: 5px;
-  border: 1px solid #ccc;
-}
-
-form button {
-  background: var(--highlight-color);
-  color: var(--text-color);
-  border: none;
-  font-size: 1rem;
+  transition: transform 0.3s ease;
   cursor: pointer;
-  transition: background 0.3s ease;
 }
 
-form button:hover {
-  background: #ff69b4;
+#photo-gallery img:hover {
+  transform: scale(1.05);
 }
 
-/* Back to Top Button */
 #back-to-top {
   position: fixed;
   bottom: 20px;
   right: 20px;
-  background: var(--highlight-color);
-  color: var(--box-text-color);
+  background: #ff69b4;
+  color: white;
   border: none;
   border-radius: 50%;
   width: 50px;
   height: 50px;
-  display: none;
-  justify-content: center;
-  align-items: center;
-  font-size: 1.5rem;
+  font-size: 1.5em;
   cursor: pointer;
+  display: none;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  transition: background 0.3s ease;
 }
 
-#back-to-top.visible {
-  display: flex;
+#back-to-top:hover {
+  background: #ff3e8a;
 }
 
-/* Smooth animations */
-.theme-toggle, header, main, footer, #back-to-top {
-  animation: fadeIn 1s ease-in-out;
+/* Footer Styling */
+footer {
+  text-align: center;
+  padding: 10px;
+  background: #333;
+  color: #fff;
 }
 
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(-10px);
+footer a {
+  color: #ff69b4;
+  text-decoration: none;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  body {
+    font-size: 0.9em;
   }
-  to {
-    opacity: 1;
-    transform: translateY(0);
+
+  header h1 {
+    font-size: 1.8em;
+  }
+
+  #photo-gallery img {
+    max-width: 45%;
+  }
+}
+
+@media (max-width: 480px) {
+  #photo-gallery img {
+    max-width: 100%;
   }
 }
