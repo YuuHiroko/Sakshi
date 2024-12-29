@@ -21,15 +21,19 @@ const sections = [
     id: 'photos',
     title: '📸 Memories We\'ve Made',
     content: `
-      <div id="photo-gallery">
-        <a href="travel1-large.jpg" data-lightbox="gallery" data-title="Adventure at the mountains">
-          <img src="travel1.jpg" alt="Travel memory" loading="lazy">
+      <div class="carousel">
+        <div class="carousel-inner">
+          <img src="travel1.jpg" alt="Travel memory">
+          <img src="family1.jpg" alt="Family memory">
+          <img src="friends1.jpg" alt="Friends memory">
+        </div>
+        <a class="carousel-control-prev" href="#carousel" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
         </a>
-        <a href="family1-large.jpg" data-lightbox="gallery" data-title="Family gathering moment">
-          <img src="family1.jpg" alt="Family memory" loading="lazy">
-        </a>
-        <a href="friends1-large.jpg" data-lightbox="gallery" data-title="Fun day with friends">
-          <img src="friends1.jpg" alt="Friends memory" loading="lazy">
+        <a class="carousel-control-next" href="#carousel" role="button" data-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
         </a>
       </div>
     `,
@@ -73,6 +77,16 @@ const observer = new IntersectionObserver(
 
 document.querySelectorAll('section').forEach((section) => observer.observe(section));
 
+// Smooth scrolling for internal links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function (e) {
+    e.preventDefault();
+    document.querySelector(this.getAttribute('href')).scrollIntoView({
+      behavior: 'smooth'
+    });
+  });
+});
+
 // Back-to-top button visibility and functionality
 const backToTopButton = document.getElementById('back-to-top');
 window.addEventListener('scroll', () => {
@@ -91,3 +105,45 @@ window.addEventListener('load', () => {
   document.body.classList.remove('loading');
   document.getElementById('preloader').style.display = 'none';
 });
+
+// Modal Popup functionality
+const modal = document.getElementById("modal");
+const openModalButton = document.getElementById("openModal");
+const closeModal = document.getElementsByClassName("close")[0];
+
+openModalButton.onclick = function() {
+  modal.style.display = "block";
+}
+
+closeModal.onclick = function() {
+  modal.style.display = "none";
+}
+
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+
+// Image Carousel functionality
+let slideIndex = 0;
+const slides = document.querySelectorAll('.carousel-inner img');
+const totalSlides = slides.length;
+
+document.querySelector('.carousel-control-next').addEventListener('click', () => {
+  slideIndex = (slideIndex + 1) % totalSlides;
+  updateCarousel();
+});
+
+document.querySelector('.carousel-control-prev').addEventListener('click', () => {
+  slideIndex = (slideIndex - 1 + totalSlides) % totalSlides;
+  updateCarousel();
+});
+
+function updateCarousel() {
+  const offset = -slideIndex * 100;
+  document.querySelector('.carousel-inner').style.transform = `translateX(${offset}%)`;
+}
+
+// Initialize carousel
+updateCarousel();
