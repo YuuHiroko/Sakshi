@@ -5,7 +5,6 @@ const sections = [
     title: 'About Sakshi 💖',
     content: `
       <p>Sakshi is a ray of sunshine, bringing happiness wherever she goes. Whether it's her infectious smile or her kind heart, she has a way of making every moment special.</p>
-      <p>She loves traveling, spending time with loved ones, and cherishing beautiful memories. This page is dedicated to celebrating the wonderful person that she is.</p>
     `,
   },
   {
@@ -16,21 +15,21 @@ const sections = [
   {
     id: 'message',
     title: '💌 Special Message',
-    content: '<p>This is where your heartfelt message goes. Add something meaningful for Sakshi here.</p>',
+    content: '<p>Add something meaningful for Sakshi here.</p>',
   },
   {
     id: 'photos',
     title: '📸 Memories We\'ve Made',
     content: `
       <div id="photo-gallery">
-        <a href="assets/images/travel1-large.jpg" data-lightbox="gallery" data-title="Adventure at the mountains">
-          <img src="assets/images/travel1.jpg" alt="Travel memory">
+        <a href="travel1-large.jpg" data-lightbox="gallery" data-title="Adventure at the mountains">
+          <img src="travel1.jpg" alt="Travel memory" loading="lazy">
         </a>
-        <a href="assets/images/family1-large.jpg" data-lightbox="gallery" data-title="Family gathering moment">
-          <img src="assets/images/family1.jpg" alt="Family memory">
+        <a href="family1-large.jpg" data-lightbox="gallery" data-title="Family gathering moment">
+          <img src="family1.jpg" alt="Family memory" loading="lazy">
         </a>
-        <a href="assets/images/friends1-large.jpg" data-lightbox="gallery" data-title="Fun day with friends">
-          <img src="assets/images/friends1.jpg" alt="Friends memory">
+        <a href="friends1-large.jpg" data-lightbox="gallery" data-title="Fun day with friends">
+          <img src="friends1.jpg" alt="Friends memory" loading="lazy">
         </a>
       </div>
     `,
@@ -38,59 +37,21 @@ const sections = [
   {
     id: 'quotes',
     title: '💬 Quotes and Memories',
-    content: `
-      <p>"The best and most beautiful things in the world cannot be seen or touched - they must be felt with the heart." - Helen Keller</p>
-    `,
+    content: `<p>"The best and most beautiful things..."</p>`,
   },
   {
     id: 'music',
     title: '🎶 Music Playlist',
     content: `
-      <p>Here’s your favorite playlist from Amaran:</p>
-      <iframe width="100%" height="315" src="https://www.youtube.com/embed/sPHRoZFnEkU" 
-        title="Amaran Playlist" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+      <p>Your favorite playlist:</p>
+      <iframe src="https://www.youtube.com/embed/sPHRoZFnEkU"></iframe>
     `,
   },
 ];
 
-// Add sections to the main content dynamically
+// Load sections
 const mainContent = document.getElementById('main-content');
-
 sections.forEach((section) => {
   const sectionElement = document.createElement('section');
   sectionElement.id = section.id;
-  sectionElement.innerHTML = `<h2>${section.title}</h2>${section.content}`;
-  mainContent.appendChild(sectionElement);
-});
-
-// GSAP animations for scroll-triggered transitions
-gsap.utils.toArray('section').forEach((section) => {
-  gsap.fromTo(
-    section,
-    { opacity: 0, y: 50 },
-    {
-      opacity: 1,
-      y: 0,
-      duration: 0.8,
-      scrollTrigger: {
-        trigger: section,
-        start: 'top 80%',
-      },
-    }
-  );
-});
-
-// Back-to-top button
-const backToTopButton = document.getElementById('back-to-top');
-
-window.addEventListener('scroll', () => {
-  if (window.scrollY > 200) {
-    backToTopButton.style.display = 'block';
-  } else {
-    backToTopButton.style.display = 'none';
-  }
-});
-
-backToTopButton.addEventListener('click', () => {
-  window.scrollTo({ top: 0, behavior: 'smooth' });
-});
+  sectionElement.innerHTML = `<h2>${section
