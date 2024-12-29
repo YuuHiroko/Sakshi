@@ -26,7 +26,7 @@ header {
   display: flex;
   justify-content: center; /* Centering the content horizontally */
   align-items: center;    /* Centering the content vertically */
-  height: 60px;           /* Adjust height as needed */
+  height: 100px;           /* Adjust height as needed */
   background: var(--header-bg);
   color: var(--highlight-color);
   padding: 15px 0;
@@ -38,8 +38,10 @@ header {
 
 header h1 {
   font-family: 'Dancing Script', cursive;
-  font-size: 2.2em;
+  font-size: 3em;       /* Increase font size for better fit */
   margin: 0;
+  line-height: 1;        /* Ensure single line height */
+  text-align: center;
 }
 
 main {
@@ -174,7 +176,7 @@ body.loading {
   }
 
   header h1 {
-    font-size: 1.8em;
+    font-size: 2.5em;  /* Adjust font size for smaller screens */
   }
 
   #photo-gallery img {
@@ -184,7 +186,7 @@ body.loading {
 
 @media (max-width: 480px) {
   header h1 {
-    font-size: 1.5em;
+    font-size: 2em;    /* Adjust font size for smaller screens */
   }
 
   #photo-gallery img {
