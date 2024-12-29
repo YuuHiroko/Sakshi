@@ -73,25 +73,6 @@ const observer = new IntersectionObserver(
 
 document.querySelectorAll('section').forEach((section) => observer.observe(section));
 
-// Active navigation link highlighting
-const navLinks = document.querySelectorAll('header nav a');
-window.addEventListener('scroll', () => {
-  let current = '';
-  sections.forEach((section) => {
-    const sectionElement = document.getElementById(section.id);
-    const sectionTop = sectionElement.offsetTop;
-    if (window.scrollY >= sectionTop - 60) {
-      current = section.id;
-    }
-  });
-  navLinks.forEach((link) => {
-    link.classList.remove('active');
-    if (link.getAttribute('href') === `#${current}`) {
-      link.classList.add('active');
-    }
-  });
-});
-
 // Back-to-top button visibility and functionality
 const backToTopButton = document.getElementById('back-to-top');
 window.addEventListener('scroll', () => {
@@ -109,12 +90,4 @@ backToTopButton.addEventListener('click', () => {
 window.addEventListener('load', () => {
   document.body.classList.remove('loading');
   document.getElementById('preloader').style.display = 'none';
-});
-
-// Toggle Side Menu
-const menuToggle = document.getElementById('menu-toggle');
-const body = document.body;
-
-menuToggle.addEventListener('click', () => {
-  body.classList.toggle('menu-open');
 });
