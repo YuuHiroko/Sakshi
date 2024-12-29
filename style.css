@@ -23,44 +23,70 @@ body.dark-mode {
 }
 
 header {
-  text-align: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
   background: var(--header-bg);
   color: var(--highlight-color);
-  padding: 15px 0;
   position: sticky;
   top: 0;
   z-index: 1000;
-  transition: background 0.3s, color 0.3s;
 }
 
 header h1 {
   font-family: 'Dancing Script', cursive;
-  font-size: 2.2em;
+  font-size: 2em;
   margin: 0;
 }
 
-header nav {
-  margin-top: 10px;
+/* Side Menu Styling */
+#side-menu {
+  position: fixed;
+  top: 0;
+  left: -250px;
+  width: 250px;
+  height: 100%;
+  background: var(--header-bg);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 20px;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+  transition: left 0.3s ease;
+  z-index: 1000;
 }
 
-header nav a {
+#side-menu a {
   color: var(--highlight-color);
   text-decoration: none;
-  margin: 0 10px;
+  font-size: 1.2em;
   font-weight: bold;
-  transition: color 0.3s ease, border-bottom 0.3s ease;
 }
 
-header nav a:hover {
+#side-menu a:hover {
   color: var(--text-color);
-  border-bottom: 2px solid var(--highlight-color);
 }
 
-header nav a.active {
-  color: var(--text-color);
-  border-bottom: 2px solid var(--text-color);
+.menu-toggle {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: var(--header-bg);
+  color: var(--highlight-color);
+  font-size: 1.5em;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  z-index: 1001;
 }
 
+/* Open menu */
+.menu-open #side-menu {
+  left: 0;
+}
+
+/* Main content */
 main {
   display: flex;
   flex-direction: column;
@@ -190,11 +216,6 @@ body.loading {
 @media (max-width: 768px) {
   body {
     font-size: 0.9em;
-  }
-
-  header nav a {
-    display: block;
-    margin: 5px 0;
   }
 
   header h1 {
