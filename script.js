@@ -110,3 +110,11 @@ window.addEventListener('load', () => {
   document.body.classList.remove('loading');
   document.getElementById('preloader').style.display = 'none';
 });
+
+// Toggle Side Menu
+const menuToggle = document.getElementById('menu-toggle');
+const body = document.body;
+
+menuToggle.addEventListener('click', () => {
+  body.classList.toggle('menu-open');
+});
