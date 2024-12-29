@@ -23,7 +23,10 @@ body.dark-mode {
 }
 
 header {
-  text-align: center;
+  display: flex;
+  justify-content: center; /* Centering the content horizontally */
+  align-items: center;    /* Centering the content vertically */
+  height: 60px;           /* Adjust height as needed */
   background: var(--header-bg);
   color: var(--highlight-color);
   padding: 15px 0;
