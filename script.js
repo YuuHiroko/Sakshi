@@ -1,53 +1,96 @@
 // Section content
 const sections = [
-  { id: 'about', title: 'About Sakshi 💖' },
-  { id: 'welcome', title: 'Welcome' },
-  { id: 'message', title: 'Special Message' },
-  { id: 'photos', title: 'Photo Gallery' },
-  { id: 'testimonials', title: 'Testimonials' },
-  { id: 'contact', title: 'Contact' },
+  {
+    id: 'about',
+    title: 'About Sakshi 💖',
+    content: `
+      <p>Sakshi is a ray of sunshine, bringing happiness wherever she goes. Whether it's her infectious smile or her kind heart, she has a way of making every moment special.</p>
+      <p>She loves traveling, spending time with loved ones, and cherishing beautiful memories. This page is dedicated to celebrating the wonderful person that she is.</p>
+    `,
+  },
+  {
+    id: 'welcome',
+    title: 'Welcome, Sakshi! 💕',
+    content: '<p>Explore the heartfelt sections below.</p>',
+  },
+  {
+    id: 'message',
+    title: '💌 Special Message',
+    content: '<p>This is where your heartfelt message goes. Add something meaningful for Sakshi here.</p>',
+  },
+  {
+    id: 'photos',
+    title: '📸 Memories We\'ve Made',
+    content: `
+      <div id="photo-gallery">
+        <a href="assets/images/travel1-large.jpg" data-lightbox="gallery" data-title="Adventure at the mountains">
+          <img src="assets/images/travel1.jpg" alt="Travel memory">
+        </a>
+        <a href="assets/images/family1-large.jpg" data-lightbox="gallery" data-title="Family gathering moment">
+          <img src="assets/images/family1.jpg" alt="Family memory">
+        </a>
+        <a href="assets/images/friends1-large.jpg" data-lightbox="gallery" data-title="Fun day with friends">
+          <img src="assets/images/friends1.jpg" alt="Friends memory">
+        </a>
+      </div>
+    `,
+  },
+  {
+    id: 'quotes',
+    title: '💬 Quotes and Memories',
+    content: `
+      <p>"The best and most beautiful things in the world cannot be seen or touched - they must be felt with the heart." - Helen Keller</p>
+    `,
+  },
+  {
+    id: 'music',
+    title: '🎶 Music Playlist',
+    content: `
+      <p>Here’s your favorite playlist from Amaran:</p>
+      <iframe width="100%" height="315" src="https://www.youtube.com/embed/sPHRoZFnEkU" 
+        title="Amaran Playlist" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+    `,
+  },
 ];
 
-// Dynamically load sections
+// Add sections to the main content dynamically
 const mainContent = document.getElementById('main-content');
+
 sections.forEach((section) => {
   const sectionElement = document.createElement('section');
   sectionElement.id = section.id;
-  sectionElement.innerHTML = `<h2>${section.title}</h2>`;
+  sectionElement.innerHTML = `<h2>${section.title}</h2>${section.content}`;
   mainContent.appendChild(sectionElement);
 });
 
-// Back to Top Button
-const backToTopButton = document.getElementById('back-to-top');
-window.addEventListener('scroll', () => {
-  backToTopButton.classList.toggle('visible', window.scrollY > 200);
+// GSAP animations for scroll-triggered transitions
+gsap.utils.toArray('section').forEach((section) => {
+  gsap.fromTo(
+    section,
+    { opacity: 0, y: 50 },
+    {
+      opacity: 1,
+      y: 0,
+      duration: 0.8,
+      scrollTrigger: {
+        trigger: section,
+        start: 'top 80%',
+      },
+    }
+  );
 });
+
+// Back-to-top button
+const backToTopButton = document.getElementById('back-to-top');
+
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 200) {
+    backToTopButton.style.display = 'block';
+  } else {
+    backToTopButton.style.display = 'none';
+  }
+});
+
 backToTopButton.addEventListener('click', () => {
   window.scrollTo({ top: 0, behavior: 'smooth' });
-});
-
-// Lazy loading for sections
-const observer = new IntersectionObserver(
-  (entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-      }
-    });
-  },
-  { threshold: 0.1 }
-);
-
-document.querySelectorAll('section').forEach((section) => observer.observe(section));
-
-// Dark Mode Toggle
-const themeToggleCheckbox = document.getElementById('theme-toggle-checkbox');
-const isDarkMode = localStorage.getItem('darkMode') === 'true';
-document.body.classList.toggle('dark-mode', isDarkMode);
-themeToggleCheckbox.checked = isDarkMode;
-
-themeToggleCheckbox.addEventListener('change', () => {
-  const darkModeEnabled = themeToggleCheckbox.checked;
-  document.body.classList.toggle('dark-mode', darkModeEnabled);
-  localStorage.setItem('darkMode', darkModeEnabled);
 });
