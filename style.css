@@ -1,4 +1,4 @@
-/* General Styling */
+/* Persistent Dark Mode Improvements */
 :root {
   --bg-color: #f7c1d5;
   --text-color: #333;
@@ -25,125 +25,7 @@ body.dark-mode {
   --highlight-color: #ff69b4;
 }
 
-header {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100px;
-  background: var(--header-bg);
-  color: var(--highlight-color);
-  padding: 15px 0;
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  transition: background 0.3s, color 0.3s;
-}
-
-header h1 {
-  font-family: 'Dancing Script', cursive;
-  font-size: 3em;
-  margin: 0;
-  line-height: 1;
-  text-align: center;
-}
-
-main {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  padding: 15px;
-}
-
-section {
-  background: #fff;
-  border-radius: 10px;
-  padding: 15px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  opacity: 0;
-  transform: translateY(20px);
-  transition: transform 0.3s ease, opacity 0.3s ease;
-}
-
-body.dark-mode section {
-  background: #2a2a2a;
-  color: #e0e0e0;
-}
-
-#photo-gallery {
-  display: flex;
-  gap: 10px;
-  justify-content: center;
-  flex-wrap: wrap;
-}
-
-#photo-gallery img {
-  max-width: 100%;
-  border-radius: 5px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  cursor: pointer;
-}
-
-#photo-gallery img:hover {
-  transform: scale(1.05);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-}
-
-#back-to-top {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background: var(--header-bg);
-  color: var(--highlight-color);
-  border: none;
-  border-radius: 50%;
-  width: 50px;
-  height: 50px;
-  font-size: 1.5em;
-  cursor: pointer;
-  display: none;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-  transition: background 0.3s ease;
-}
-
-#back-to-top:hover {
-  background: #ff3e8a;
-}
-
-/* Footer Styling */
-footer {
-  text-align: center;
-  padding: 10px;
-  background: var(--header-bg);
-  color: var(--highlight-color);
-  transition: background 0.3s ease, color 0.3s ease;
-  position: relative;
-  bottom: 0;
-  width: 100%;
-}
-
-footer a {
-  color: var(--highlight-color);
-  text-decoration: none;
-}
-
-/* Theme Toggle */
-.theme-toggle {
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  background: var(--header-bg);
-  padding: 5px 10px;
-  border-radius: 20px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.theme-toggle label {
-  color: var(--highlight-color);
-  font-weight: bold;
-}
-
-/* Preloader */
+/* Updated Preloader */
 #preloader {
   position: fixed;
   top: 0;
@@ -172,104 +54,23 @@ footer a {
   }
 }
 
-body.loading {
-  overflow: hidden;
-}
-
-/* Modal Popup */
-.modal {
-  display: none;
-  position: fixed;
-  z-index: 1000;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  overflow: auto;
-  background-color: rgb(0,0,0);
-  background-color: rgba(0,0,0,0.4);
-}
-
-.modal-content {
-  background-color: #fefefe;
-  margin: 15% auto;
-  padding: 20px;
-  border: 1px solid #888;
-  width: 80%;
-}
-
-.close {
-  color: #aaa;
-  float: right;
-  font-size: 28px;
-}
-
-.close:hover,
-.close:focus {
-  color: black;
-  text-decoration: none;
-  cursor: pointer;
-}
-
-/* Image Carousel */
-.carousel {
-  position: relative;
-  width: 100%;
-  max-width: 600px;
-  margin: auto;
-  overflow: hidden;
-}
-
-.carousel-inner {
+/* Carousel Navigation Dots */
+.carousel-dots {
   display: flex;
-  transition: transform 0.5s ease;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 10px;
 }
 
-.carousel-inner img {
-  width: 100%;
-}
-
-.carousel-control-prev, .carousel-control-next {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background-color: rgba(0, 0, 0, 0.5);
-  border: none;
-  color: white;
-  padding: 10px;
+.carousel-dots span {
+  width: 10px;
+  height: 10px;
+  background: #ccc;
+  border-radius: 50%;
   cursor: pointer;
+  transition: background 0.3s;
 }
 
-.carousel-control-prev {
-  left: 10px;
-}
-
-.carousel-control-next {
-  right: 10px;
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-  body {
-    font-size: 0.9em;
-  }
-
-  header h1 {
-    font-size: 2.5em;
-  }
-
-  #photo-gallery img {
-    max-width: 45%;
-  }
-}
-
-@media (max-width: 480px) {
-  header h1 {
-    font-size: 2em;
-  }
-
-  #photo-gallery img {
-    max-width: 100%;
-    margin: 0 auto;
-  }
+.carousel-dots span.active {
+  background: var(--header-bg);
 }
