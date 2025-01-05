@@ -4,28 +4,97 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="A heartfelt webpage for Sakshi with messages, photos, and memories.">
+  <meta property="og:title" content="Sakshi's Webpage 💖">
+  <meta property="og:description" content="A heartfelt webpage dedicated to Sakshi, filled with messages, photos, and memories.">
+  <meta property="og:image" content="sakshi-banner.jpg">
   <title>Sakshi 💖</title>
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Open+Sans:wght@400;600&family=Dancing+Script&display=swap" rel="stylesheet">
-  <!-- Custom CSS -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Dancing+Script:wght@700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css" rel="stylesheet">
 </head>
 <body>
+  <!-- Dark Mode Toggle -->
+  <div class="theme-toggle">
+    <label>
+      <input type="checkbox" id="theme-toggle-checkbox" aria-label="Enable dark mode">
+      Dark Mode
+    </label>
+  </div>
+
   <!-- Header -->
   <header>
-    <h1>Sakshi 💖</h1>
-    <p>A page filled with love, memories, and joy!</p>
+    <h1 class="header-title">Sakshi 💖</h1>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#welcome">Welcome</a>
+      <a href="#message">Message</a>
+      <a href="#photos">Photos</a>
+      <a href="#timeline">Timeline</a>
+      <a href="#testimonials">Testimonials</a>
+      <a href="#music">Music</a>
+    </nav>
   </header>
 
   <!-- Main Content -->
-  <main id="main-content"></main>
+  <main id="main-content">
+    <section id="about">
+      <h2>About Sakshi 💖</h2>
+      <p>Sakshi is my elder sissy who is the bestest sissy. She brings happiness wherever she goes!</p>
+    </section>
+
+    <section id="welcome">
+      <h2>Welcome</h2>
+      <img src="sakshi.jpg" alt="Sakshi's image" loading="lazy" style="max-width: 100%; border-radius: 10px;">
+    </section>
+
+    <section id="message">
+      <h2>Special Message</h2>
+      <p>This section will hold a heartfelt message for Sakshi.</p>
+    </section>
+
+    <section id="photos">
+      <h2>Photo Gallery</h2>
+      <div id="photo-gallery">
+        <a href="travel1-large.jpg" data-lightbox="gallery" data-title="Adventure at the mountains">
+          <img src="travel1.jpg" alt="Travel memory" loading="lazy">
+        </a>
+        <a href="family1-large.jpg" data-lightbox="gallery" data-title="Family gathering moment">
+          <img src="family1.jpg" alt="Family memory" loading="lazy">
+        </a>
+        <a href="friends1-large.jpg" data-lightbox="gallery" data-title="Fun day with friends">
+          <img src="friends1.jpg" alt="Friends memory" loading="lazy">
+        </a>
+      </div>
+    </section>
+
+    <section id="timeline">
+      <h2>Sakshi’s Timeline</h2>
+      <p>Interactive milestones of Sakshi’s life can go here.</p>
+    </section>
+
+    <section id="testimonials">
+      <h2>Testimonials</h2>
+      <blockquote>"Sakshi is amazing!" - Family</blockquote>
+      <blockquote>"You always bring joy to our lives, Sakshi!" - Friends</blockquote>
+    </section>
+
+    <section id="music">
+      <h2>Music Playlist</h2>
+      <iframe src="https://www.youtube.com/embed/sPHRoZFnEkU" loading="lazy" title="Sakshi's Favorite Music" frameborder="0" allowfullscreen></iframe>
+    </section>
+  </main>
+
+  <!-- Back to Top Button -->
+  <button id="back-to-top" aria-label="Back to top">⬆️</button>
 
   <!-- Footer -->
   <footer>
     <p>Made with ❤️ by <a href="https://wa.me/+919175349176" target="_blank">Munchkin✨</a></p>
   </footer>
 
-  <!-- Custom JS -->
+  <!-- External Scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
