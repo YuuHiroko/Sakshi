@@ -26,11 +26,13 @@ body.dark-mode {
   --highlight-color: #950045;
 }
 
-header {
+/* Redesigned Header */
+.header-container {
   text-align: center;
-  background: var(--header-bg);
+  background: linear-gradient(135deg, var(--highlight-color), var(--header-bg));
   color: var(--text-color);
   padding: 20px 0;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
   position: sticky;
   top: 0;
   z-index: 1000;
@@ -40,25 +42,52 @@ header {
   font-family: 'Dancing Script', cursive;
   font-size: clamp(2.5rem, 5vw, 3.5rem);
   margin: 0;
-  color: var(--highlight-color);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
 
-header nav a {
-  color: var(--text-color);
-  text-decoration: none;
-  margin: 0 10px;
-  font-weight: bold;
-  transition: color 0.3s ease, border-bottom 0.3s ease;
-}
-
-main {
-  padding: 20px;
-}
-
+/* Sections */
 section {
   background: var(--box-bg);
   color: var(--box-text-color);
   border-radius: 10px;
   padding: 20px;
   margin-bottom: 20px;
+}
+
+/* Photo Gallery */
+#photo-gallery img {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#photo-gallery img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Redesigned Footer */
+footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 20px;
+  background: linear-gradient(135deg, var(--header-bg), var(--highlight-color));
+  color: var(--text-color);
+}
+
+.footer-content p {
+  margin: 5px 0;
+  font-size: clamp(0.8rem, 1.5vw, 1rem);
+}
+
+footer a {
+  color: var(--text-color);
+  text-decoration: none;
+  border-bottom: 1px dashed var(--text-color);
+  transition: color 0.3s ease, border-bottom 0.3s ease;
+}
+
+footer a:hover {
+  color: var(--highlight-color);
+  border-bottom: 1px dashed var(--highlight-color);
 }
