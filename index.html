@@ -13,6 +13,9 @@
   <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css" rel="stylesheet">
 </head>
 <body>
+  <!-- Particles Background -->
+  <div id="particles-js"></div>
+
   <!-- Dark Mode Toggle -->
   <div class="theme-toggle">
     <label>
@@ -36,16 +39,6 @@
       <p>Sakshi is my elder sissy who is the bestest sissy. She brings happiness wherever she goes!</p>
     </section>
 
-    <section id="welcome">
-      <h2>Welcome</h2>
-      <img src="sakshi.webp" alt="Sakshi's image" loading="lazy" style="max-width: 100%; border-radius: 10px;">
-    </section>
-
-    <section id="message">
-      <h2>Special Message</h2>
-      <p>This section will hold a heartfelt message for Sakshi.</p>
-    </section>
-
     <section id="photos">
       <h2>Photo Gallery</h2>
       <div id="photo-gallery">
@@ -60,39 +53,66 @@
         </a>
       </div>
     </section>
-
-    <section id="timeline">
-      <h2>Sakshi’s Timeline</h2>
-      <p>Interactive milestones of Sakshi’s life can go here.</p>
-    </section>
-
-    <section id="testimonials">
-      <h2>Testimonials</h2>
-      <blockquote>"Sakshi is amazing!" - Family</blockquote>
-      <blockquote>"You always bring joy to our lives, Sakshi!" - Friends</blockquote>
-    </section>
-
-    <section id="music">
-      <h2>Music Playlist</h2>
-      <iframe src="https://www.youtube.com/embed/sPHRoZFnEkU" loading="lazy" title="Sakshi's Favorite Music" frameborder="0" allowfullscreen></iframe>
-    </section>
   </main>
 
-  <!-- Back to Top Button -->
-  <button id="back-to-top" aria-label="Back to top">⬆️</button>
-
-  <!-- Redesigned Footer -->
+  <!-- Footer -->
   <footer>
-    <div class="footer-separator"></div>
     <div class="footer-content">
       <p>Made with ❤️ by <a href="https://wa.me/+919175349176" target="_blank">Munchkin✨</a></p>
       <p>© 2025 Sakshi's Webpage. All rights reserved.</p>
     </div>
   </footer>
 
-  <!-- External Scripts -->
+  <!-- Scripts -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js" defer></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" defer></script>
-  <script src="script.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+  <script>
+    // Particles configurations
+    const particlesConfigLight = {
+      particles: {
+        number: { value: 80, density: { enable: true, value_area: 800 } },
+        color: { value: "#ffffff" },
+        line_linked: { enable: true, distance: 150, color: "#ffffff", opacity: 0.4, width: 1 },
+        move: { enable: true, speed: 6 },
+        size: { value: 3, random: true },
+        opacity: { value: 0.5 }
+      }
+    };
+
+    const particlesConfigDark = {
+      particles: {
+        number: { value: 80, density: { enable: true, value_area: 800 } },
+        color: { value: "#aaaaaa" },
+        line_linked: { enable: true, distance: 150, color: "#aaaaaa", opacity: 0.4, width: 1 },
+        move: { enable: true, speed: 6 },
+        size: { value: 3, random: true },
+        opacity: { value: 0.5 }
+      }
+    };
+
+    // Function to initialize particles based on the theme
+    function initializeParticles(isDarkMode) {
+      particlesJS('particles-js', isDarkMode ? particlesConfigDark : particlesConfigLight);
+    }
+
+    // Dark mode toggle functionality
+    const themeToggleCheckbox = document.getElementById('theme-toggle-checkbox');
+
+    function applyTheme(darkMode) {
+      document.body.classList.toggle('dark-mode', darkMode);
+      localStorage.setItem('darkMode', darkMode);
+    }
+
+    const isDarkMode = localStorage.getItem('darkMode') === 'true';
+    themeToggleCheckbox.checked = isDarkMode;
+    applyTheme(isDarkMode);
+    initializeParticles(isDarkMode);
+
+    themeToggleCheckbox.addEventListener('change', () => {
+      const darkMode = themeToggleCheckbox.checked;
+      applyTheme(darkMode);
+      initializeParticles(darkMode);
+    });
+  </script>
 </body>
 </html>
