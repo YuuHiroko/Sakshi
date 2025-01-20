@@ -157,3 +157,24 @@ footer a:hover {
   color: red;
   margin-top: 10px;
 }
+
+/* Particles Background */
+#particles-js {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background: var(--header-bg);
+}
+
+/* Responsive Styles */
+@media (max-width: 600px) {
+  header h1 {
+    font-size: 2.5rem;
+  }
+  .section {
+    padding: 20px;
+  }
+}
