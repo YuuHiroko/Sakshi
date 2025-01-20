@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sakshi's World</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-color: #f0f4ff;
+      --text-color: #333;
+      --box-bg: #fff;
+      --box-text-color: #444;
+      --header-bg: linear-gradient(135deg, #6a11cb, #2575fc);
+      --highlight-color: #6a11cb;
+    }
+
+    /* General Styles */
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      background: var(--bg-color);
+      color: var(--text-color);
+      scroll-behavior: smooth;
+    }
+
+    body.dark-mode {
+      --bg-color: #121212;
+      --text-color: #e0e0e0;
+      --box-bg: #1e1e1e;
+      --box-text-color: #f5f5f5;
+    }
+
+    #particles-js {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      background: var(--header-bg);
+    }
+
+    header {
+      text-align: center;
+      padding: 40px 20px;
+      background: rgba(0, 0, 0, 0.1);
+      color: white;
+    }
+
+    header h1 {
+      font-family: 'Dancing Script', cursive;
+      font-size: 3.5rem;
+      margin: 0;
+    }
+
+    header p {
+      font-size: 1.2rem;
+      margin: 10px 0 0;
+    }
+
+    .section {
+      margin: 20px auto;
+      padding: 30px;
+      max-width: 800px;
+      background: var(--box-bg);
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      border-radius: 10px;
+    }
+
+    .section h2 {
+      font-size: 2em;
+      margin-bottom: 10px;
+      text-align: center;
+      color: var(--highlight-color);
+    }
+
+    #photo-gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 20px;
+      justify-items: center;
+    }
+
+    #photo-gallery img {
+      width: 100%;
+      border-radius: 10px;
+      transition: transform 0.3s ease, filter 0.3s ease;
+    }
+
+    #photo-gallery img:hover {
+      transform: scale(1.1);
+      filter: brightness(1.2);
+    }
+
+    .timeline {
+      position: relative;
+      margin: 20px 0;
+      padding: 10px 0;
+    }
+
+    .timeline .event {
+      margin: 20px 0;
+      padding: 10px;
+      background: var(--box-bg);
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .testimonial-carousel div {
+      display: none;
+      text-align: center;
+      font-size: 1.2em;
+      font-style: italic;
+      padding: 20px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 15px;
+      background: rgba(0, 0, 0, 0.2);
+      font-size: 0.9em;
+      color: white;
+    }
+
+    footer a {
+      color: var(--highlight-color);
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 2rem;
+      }
+      .section {
+        padding: 20px;
+      }
+    }
+
+    /* Loader */
+    #loader {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      border: 4px solid #f3f3f3;
+      border-top: 4px solid var(--highlight-color);
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      animation: spin 1s linear infinite;
+      z-index: 1000;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+  </style>
+</head>
+<body>
+  <!-- Loader -->
+  <div id="loader"></div>
+
+  <!-- Particles Background -->
+  <div id="particles-js"></div>
+
+  <!-- Header -->
+  <header>
+    <h1>Welcome to Sakshi's World</h1>
+    <p>A space filled with love, memories, and happiness</p>
+    <label>
+      <input type="checkbox" id="theme-toggle-checkbox"> Enable Dark Mode
+    </label>
+  </header>
+
+  <!-- About Section -->
+  <section class="section" id="about">
+    <h2>About Sakshi 💖</h2>
+    <p>Sakshi is my elder sissy who is the bestest sissy. She brings happiness wherever she goes!</p>
+  </section>
+
+  <!-- Photo Gallery Section -->
+  <section class="section" id="photo-gallery">
+    <h2>Photo Gallery</h2>
+    <img src="travel1.jpg" alt="Travel memory">
+    <img src="family1.jpg" alt="Family memory">
+    <img src="friends1.jpg" alt="Friends memory">
+  </section>
+
+  <!-- Achievements Section -->
+  <section class="section" id="achievements">
+    <h2>Achievements</h2>
+    <p>Sakshi has achieved so much in life! Here you can showcase her awards, milestones, or any memorable moments.</p>
+  </section>
+
+  <!-- Timeline Section -->
+  <section class="section" id="timeline">
+    <h2>Sakshi's Timeline</h2>
+    <div class="timeline">
+      <div class="event">
+        <h3>Year 1</h3>
+        <p>First steps into this beautiful world!</p>
+      </div>
+      <div class="event">
+        <h3>Year 10</h3>
+        <p>Won her first award in school.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials Carousel -->
+  <section class="section" id="testimonials">
+    <h2>Testimonials</h2>
+    <div class="testimonial-carousel">
+      <div>"Sakshi is amazing!"</div>
+      <div>"She lights up every room she enters!"</div>
+    </div>
+  </section>
+
+  <!-- Music Section -->
+  <section class="section" id="music">
+    <h2>Music Playlist</h2>
+    <p>Here’s a special music playlist curated for Sakshi. Enjoy the tunes!</p>
+    <iframe
+      src="https://www.youtube.com/embed/sPHRoZFnEkU"
+      loading="lazy"
+      title="Sakshi's Favorite Music"
+      frameborder="0"
+      allowfullscreen
+      style="width: 100%; height: 315px; border-radius: 10px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
+    </iframe>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>Made with ❤️ by Munchkin✨</p>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+  <script>
+    // Particle.js Configuration
+    particlesJS("particles-js", {
+      particles: {
+        number: { value: 80, density: { enable: true, value_area: 800 } },
+        color: { value: "#ffffff" },
+        line_linked: { enable: true, distance: 150, color: "#ffffff", opacity: 0.4, width: 1 },
+        move: { enable: true, speed: 6 },
+        size: { value: 3, random: true },
+        opacity: { value: 0.5 },
+      },
+      interactivity: {
+        detect_on: "canvas",
+        events: {
+          onhover: { enable: true, mode: "repulse" },
+          onclick: { enable: true, mode: "push" },
+        },
+        modes: { repulse: { distance: 200, duration: 0.4 } },
+      },
+      retina_detect: true,
+    });
+
+    // Theme Toggle
+    const themeToggleCheckbox = document.getElementById("theme-toggle-checkbox");
+    const isDarkMode = localStorage.getItem("darkMode") === "true";
+
+themeToggleCheckbox.checked = isDarkMode;
+    document.body.classList.toggle("dark-mode", isDarkMode);
+
+    // Initialize theme and particles on page load
+    function initializeParticles() {
+      particlesJS("particles-js", isDarkMode ? {
+        particles: {
+          number: { value: 80, density: { enable: true, value_area: 800 } },
+          color: { value: "#aaaaaa" },
+          line_linked: { enable: true, distance: 150, color: "#aaaaaa", opacity: 0.4, width: 1 },
+          move: { enable: true, speed: 6 },
+          size: { value: 3, random: true },
+          opacity: { value: 0.5 },
+        },
+        interactivity: {
+          detect_on: "canvas",
+          events: {
+            onhover: { enable: true, mode: "repulse" },
+            onclick: { enable: true, mode: "push" },
+          },
+          modes: { repulse: { distance: 200, duration: 0.4 } },
+        },
+        retina_detect: true,
+      } : {
+        particles: {
+          number: { value: 80, density: { enable: true, value_area: 800 } },
+          color: { value: "#ffffff" },
+          line_linked: { enable: true, distance: 150, color: "#ffffff", opacity: 0.4, width: 1 },
+          move: { enable: true, speed: 6 },
+          size: { value: 3, random: true },
+          opacity: { value: 0.5 },
+        },
+        interactivity: {
+          detect_on: "canvas",
+          events: {
+            onhover: { enable: true, mode: "repulse" },
+            onclick: { enable: true, mode: "push" },
+          },
+          modes: { repulse: { distance: 200, duration: 0.4 } },
+        },
+        retina_detect: true,
+      });
+    }
+
+    initializeParticles();
+
+    // Toggle Theme
+    themeToggleCheckbox.addEventListener("change", () => {
+      const darkMode = themeToggleCheckbox.checked;
+      document.body.classList.toggle("dark-mode", darkMode);
+      localStorage.setItem("darkMode", darkMode);
+      initializeParticles();
+    });
+
+    // Testimonials Carousel
+    const testimonials = document.querySelectorAll(".testimonial-carousel div");
+    let currentTestimonial = 0;
+
+    function showTestimonial(index) {
+      testimonials.forEach((testimonial, i) => {
+        testimonial.style.display = i === index ? "block" : "none";
+      });
+    }
+
+    showTestimonial(currentTestimonial);
+
+    setInterval(() => {
+      currentTestimonial = (currentTestimonial + 1) % testimonials.length;
+      showTestimonial(currentTestimonial);
+    }, 3000);
+
+    // Loader
+    window.addEventListener("load", () => {
+      document.getElementById("loader").style.display = "none";
+    });
+  </script>
+</body>
+</html>
