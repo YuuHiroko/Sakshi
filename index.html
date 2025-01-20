@@ -5,9 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Sakshi's World</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
-  <style>
-    /* CSS Code Here (Use the previously shared CSS code) */
-  </style>
+  <!-- Link to External CSS -->
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <!-- Spinner Loader -->
@@ -98,27 +97,7 @@
     <p>Made with ❤️ by Munchkin✨</p>
   </footer>
 
-  <script>
-    const correctPassword = "munchkin";
-
-    // Display loader and then show the password modal
-    window.addEventListener("load", () => {
-      document.getElementById("loader").style.display = "none"; // Hide the loader
-      document.getElementById("passwordModal").style.display = "flex"; // Show the password modal
-    });
-
-    // Verify the password and display the content
-    function verifyPassword() {
-      const userPassword = document.getElementById("passwordInput").value;
-      const errorMessage = document.getElementById("errorMessage");
-
-      if (userPassword === correctPassword) {
-        document.getElementById("passwordModal").style.display = "none";
-        document.body.style.display = "block"; // Show the page content
-      } else {
-        errorMessage.textContent = "Incorrect password. Please try again.";
-      }
-    }
-  </script>
+  <!-- Link to External JavaScript -->
+  <script src="script.js"></script>
 </body>
 </html>
