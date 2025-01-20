@@ -1,48 +1,24 @@
-// Particle.js Configuration for Light and Dark Modes
-const lightParticlesConfig = {
-  particles: {
-    number: { value: 80, density: { enable: true, value_area: 800 } },
-    color: { value: "#ffffff" },
-    line_linked: { enable: true, distance: 150, color: "#ffffff", opacity: 0.4, width: 1 },
-    move: { enable: true, speed: 6 },
-    size: { value: 3, random: true },
-    opacity: { value: 0.5 },
-  },
-  interactivity: {
-    detect_on: "canvas",
-    events: {
-      onhover: { enable: true, mode: "repulse" },
-      onclick: { enable: true, mode: "push" },
-    },
-    modes: { repulse: { distance: 200, duration: 0.4 } },
-  },
-  retina_detect: true,
-};
+// Loader
+window.addEventListener("load", () => {
+  const loader = document.getElementById("loader");
+  if (loader) {
+    loader.style.display = "none";
+  }
+});
 
-const darkParticlesConfig = {
-  ...lightParticlesConfig,
-  particles: { ...lightParticlesConfig.particles, color: { value: "#aaaaaa" } },
-  line_linked: { ...lightParticlesConfig.line_linked, color: "#aaaaaa" },
-};
+// Scroll-to-Top Button
+const backToTopButton = document.getElementById("back-to-top");
 
-// Initialize Particles.js
-function initializeParticles(isDarkMode) {
-  particlesJS("particles-js", isDarkMode ? darkParticlesConfig : lightParticlesConfig);
-}
+window.addEventListener("scroll", () => {
+  if (window.scrollY > 200) {
+    backToTopButton.style.display = "block";
+  } else {
+    backToTopButton.style.display = "none";
+  }
+});
 
-// Theme Toggle
-const themeToggleCheckbox = document.getElementById("theme-toggle-checkbox");
-const isDarkMode = localStorage.getItem("darkMode") === "true";
-
-themeToggleCheckbox.checked = isDarkMode;
-document.body.classList.toggle("dark-mode", isDarkMode);
-initializeParticles(isDarkMode);
-
-themeToggleCheckbox.addEventListener("change", () => {
-  const darkMode = themeToggleCheckbox.checked;
-  document.body.classList.toggle("dark-mode", darkMode);
-  localStorage.setItem("darkMode", darkMode);
-  initializeParticles(darkMode);
+backToTopButton.addEventListener("click", () => {
+  window.scrollTo({ top: 0, behavior: "smooth" });
 });
 
 // Testimonials Carousel
@@ -62,7 +38,13 @@ setInterval(() => {
   showTestimonial(currentTestimonial);
 }, 3000);
 
-// Loader
-window.addEventListener("load", () => {
-  document.getElementById("loader").style.display = "none";
+// Confetti Effect
+const celebrateButton = document.getElementById("celebrate-btn");
+
+celebrateButton.addEventListener("click", () => {
+  confetti({
+    particleCount: 100,
+    spread: 70,
+    origin: { y: 0.6 },
+  });
 });
