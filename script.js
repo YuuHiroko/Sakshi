@@ -1,53 +1,4 @@
-// Correct Password
-const correctPassword = "munchkin";
-
-// Event listener for page load
-window.addEventListener("load", () => {
-  // Hide the spinner loader
-  document.getElementById("loader").style.display = "none";
-
-  // Show the password modal
-  document.getElementById("passwordModal").style.display = "flex";
-});
-
-// Verify the password
-function verifyPassword() {
-  const userPassword = document.getElementById("passwordInput").value; // Get user input
-  const errorMessage = document.getElementById("errorMessage"); // Error message element
-
-  if (userPassword === correctPassword) {
-    // If password is correct, hide the modal and display the page content
-    document.getElementById("passwordModal").style.display = "none";
-    document.body.style.display = "block"; // Show the content
-  } else {
-    // Display an error message for incorrect password
-    errorMessage.textContent = "Incorrect password. Please try again.";
-  }
-}
-
-// Dark Mode Toggle
-const themeToggleCheckbox = document.getElementById("theme-toggle-checkbox");
-const isDarkMode = localStorage.getItem("darkMode") === "true";
-
-// Initialize dark mode state
-themeToggleCheckbox.checked = isDarkMode;
-document.body.classList.toggle("dark-mode", isDarkMode);
-
-// Toggle dark mode
-themeToggleCheckbox.addEventListener("change", () => {
-  const darkMode = themeToggleCheckbox.checked;
-  document.body.classList.toggle("dark-mode", darkMode);
-  localStorage.setItem("darkMode", darkMode);
-  initializeParticles(darkMode);
-});
-
-// Initialize particles.js
-function initializeParticles(isDarkMode) {
-  const config = isDarkMode ? darkParticlesConfig : lightParticlesConfig;
-  particlesJS("particles-js", config);
-}
-
-// Particles.js Configurations
+// Particle.js Configuration for Light and Dark Modes
 const lightParticlesConfig = {
   particles: {
     number: { value: 80, density: { enable: true, value_area: 800 } },
@@ -74,8 +25,24 @@ const darkParticlesConfig = {
   line_linked: { ...lightParticlesConfig.line_linked, color: "#aaaaaa" },
 };
 
-// Initialize particles on page load
+// Initialize Particles.js
+function initializeParticles(isDarkMode) {
+  particlesJS("particles-js", isDarkMode ? darkParticlesConfig : lightParticlesConfig);
+}
+
+// Theme Toggle
+const themeToggleCheckbox = document.getElementById("theme-toggle-checkbox");
+const isDarkMode = localStorage.getItem("darkMode") === "true";
+themeToggleCheckbox.checked = isDarkMode;
+document.body.classList.toggle("dark-mode", isDarkMode);
 initializeParticles(isDarkMode);
+
+themeToggleCheckbox.addEventListener("change", () => {
+  const darkMode = themeToggleCheckbox.checked;
+  document.body.classList.toggle("dark-mode", darkMode);
+  localStorage.setItem("darkMode", darkMode);
+  initializeParticles(darkMode);
+});
 
 // Testimonials Carousel
 const testimonials = document.querySelectorAll(".testimonial-carousel div");
@@ -87,11 +54,13 @@ function showTestimonial(index) {
   });
 }
 
-// Show the first testimonial initially
 showTestimonial(currentTestimonial);
-
-// Rotate testimonials every 3 seconds
 setInterval(() => {
   currentTestimonial = (currentTestimonial + 1) % testimonials.length;
   showTestimonial(currentTestimonial);
 }, 3000);
+
+// Loader
+window.addEventListener("load", () => {
+  document.getElementById("loader").style.display = "none";
+});
