@@ -7,6 +7,15 @@ const lightParticlesConfig = {
     move: { enable: true, speed: 6 },
     size: { value: 3, random: true },
     opacity: { value: 0.5 },
+// Particle.js Configuration for Light and Dark Modes
+const lightParticlesConfig = {
+  particles: {
+    number: { value: 80, density: { enable: true, value_area: 800 } },
+    color: { value: "#ffffff" },
+    line_linked: { enable: true, distance: 150, color: "#ffffff", opacity: 0.4, width: 1 },
+    move: { enable: true, speed: 6 },
+    size: { value: 3, random: true },
+    opacity: { value: 0.5 },
   },
   interactivity: {
     detect_on: "canvas",
@@ -46,6 +55,25 @@ themeToggleCheckbox.addEventListener("change", () => {
 
 // Testimonials Carousel
 const testimonials = document.querySelectorAll(".testimonial-carousel div");
+let currentTestimonial = 0;
+
+function showTestimonial(index) {
+  testimonials.forEach((testimonial, i) => {
+    testimonial.style.display = i === index ? "block" : "none";
+  });
+}
+
+showTestimonial(currentTestimonial);
+setInterval(() => {
+  currentTestimonial = (currentTestimonial + 1) % testimonials.length;
+  showTestimonial(currentTestimonial);
+}, 3000);
+
+// Loader
+window.addEventListener("load", () => {
+  document.getElementById("loader").style.display = "none";
+});
+ctorAll(".testimonial-carousel div");
 let currentTestimonial = 0;
 
 function showTestimonial(index) {
